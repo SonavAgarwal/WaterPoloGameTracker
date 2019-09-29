@@ -1,0 +1,83 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+    vertical-align: baseline;
+    font-family: 'Squada One', Arial, Helvetica, sans-serif;
+}
+br {
+    height:0;
+}
+body {
+    width: 100vw;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: calc(3vw + 20px);
+    background-color: rgb(82, 146, 255);
+}
+.inForm {
+    border-radius: 4vw;
+    border-color: black;
+    border-style: solid;
+    height: calc(6vw + 30px);
+    border-width: calc(0.5vw + 3px);
+    background-color: rgb(255, 246, 81);
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+.changeF {
+    width: 74vw !important;
+}
+#addButton {
+    width: 15vw;
+    height: 15vw;
+    background: url("Images/CheckMark.png") center no-repeat;
+    background-size: 15vw 15vw;
+    background-color: rgb(255, 246, 81);
+    margin-left: 42.5vw;
+    margin-top: 3vw;
+    border-radius: 7.5vw;
+}
+.linkBox {
+    width: 55vw;
+    margin-left: 13vw;
+    margin-top: 3vw;
+}
+.linkButton {
+    width: 13vw;
+    margin-left: 5vw;
+}
+.inform:hover {
+    background-color: rgb(255, 249, 130);
+}
+
+button {
+    margin-top: 10vw;
+    width: 30vw;
+    margin-left: 13vw;
+    padding: none;
+    border-radius: 4vw;
+}
+h1 {
+    width: 74vw;
+    margin-left: 13vw;
+    margin-top: 10vw;
+}
+#or {
+    margin-top: 3vw;
+}
+#create {
+    background: url("Images/PlusSign.png") center no-repeat;
+    background-size: auto calc(6vw + 30px);
+    background-color: rgb(255, 246, 81);
+}
+#goal {
+    margin-top: 3vw;
+}
+
+#updateMsg {
+    text-align: center;
+    margin-top: 5vw;
+}
