@@ -1,11 +1,2 @@
-668902208812-hvk1g062ao4a8lrq1ufsm3aku73c1or0.apps.googleusercontent.com
-
-AX3Jz9jPSq-_HNjICLzfGg7c
-
-AIzaSyDmhtnkVHTd6PCyXOG4B2lU7GFEqCRmUHk 
-
-
-NEWWW
-
 
 python -m SimpleHTTPServer 8080
