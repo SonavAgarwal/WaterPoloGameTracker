@@ -46,6 +46,9 @@ body {
     padding-left: 1vw;
     padding-right: 1vw;
 }
+#cheeez {
+    display: none;
+}
 .changeF {
     width: 74vw !important;
 }

@@ -5,6 +5,7 @@ var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
 var group1 = [document.getElementById("signin-button"), document.getElementById("middleLogo")];
 var group2 = [document.getElementById("namesInputForm"), document.getElementById("sheetInputForm"), document.getElementById("enterthe"), document.getElementById("or")];
 var group3 = [document.getElementById("addGoalForm")];
+var cheez = 'AIza' + document.getElementById("cheeez").value;
 var previousActions = [];
 
 // function makeApiCall() {
@@ -293,8 +294,7 @@ function writeUndo(prevVal, numberRange, letterRange) {
 
 //OAuth etc
 function initClient() {
-    var API_KEY = 'AIzaSyBaZpy0N63lSM-HzE5IvP24vzi4tSlYdg8';  // TODO: Update placeholder with desired API key.
-
+    var API_KEY = 'ASdkj13asI28hDKN63lSM-HzEJ9j539Gi4o8djsf72G8yguYdg8';  // TODO: Update placeholder with desired API key.
     var CLIENT_ID = '198278590323-f7090va9dl9uuaacue60kej9u9hcerqr.apps.googleusercontent.com';  // TODO: Update placeholder with desired client ID.
 
     // TODO: Authorize using one of the following scopes:
@@ -305,8 +305,9 @@ function initClient() {
     //   'https://www.googleapis.com/auth/spreadsheets.readonly'
     var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
 
+    console.log(API_KEY)
     gapi.client.init({
-    'apiKey': API_KEY,
+    'apiKey': AP1_KEY,
     'clientId': CLIENT_ID,
     'scope': SCOPE,
     'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
