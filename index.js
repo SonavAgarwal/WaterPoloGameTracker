@@ -1,10 +1,11 @@
-var currentSheetId;
+var currentSheetId = "";
 var currentPlayers = [];
 var goalTypes = ["Counter", "Five Meter", "Foul", "Six on Five"];
 var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-var group1 = [document.getElementById("signin-button")];
+var group1 = [document.getElementById("signin-button"), document.getElementById("middleLogo")];
 var group2 = [document.getElementById("namesInputForm"), document.getElementById("sheetInputForm"), document.getElementById("enterthe"), document.getElementById("or")];
 var group3 = [document.getElementById("addGoalForm")];
+var previousActions = [];
 
 // function makeApiCall() {
 //     var params = {
@@ -66,9 +67,8 @@ function updateSheetInput(form) {
     {
     var request = gapi.client.sheets.spreadsheets.values.get(params);
     request.then(function(response) {
-        console.log(response.result);
+        //console.log(response.result);
         addNames(response.result);
-        console.log(currentPlayers);
     }, function(reason) {
         console.error('error: ' + reason.result.error.message);
     });
@@ -111,9 +111,8 @@ function createNewSheet(form) {
     {
         var request = gapi.client.sheets.spreadsheets.values.get(params);
         request.then(function(response) {
-            console.log(response.result);
+            //console.log(response.result);
             addNames(response.result);
-            console.log(currentPlayers);
             makeSheet();
         }, function(reason) {
             console.error('error: ' + reason.result.error.message);
@@ -121,9 +120,10 @@ function createNewSheet(form) {
     }
 }
 function makeSheet() {
+    var d = new Date();
     var spreadsheetBody = {
         "properties": {
-            "title": "creeper"
+            "title": "Game at " + ((d.getHours() + ":" + d.getMinutes()) + " on " + (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear())
         }
     };
 
@@ -132,7 +132,7 @@ function makeSheet() {
         request.then(function(response) {
         currentSheetId = response.result.spreadsheetId;
         populateNewSheet();
-        console.log(response.result);
+        //console.log(response.result);
         }, function(reason) {
         console.error('error: ' + reason.result.error.message);
         });
@@ -171,7 +171,7 @@ function populateNewSheet() {
     {
     var request = gapi.client.sheets.spreadsheets.values.batchUpdate(params, batchUpdateValuesRequestBody);
     request.then(function(response) {
-    console.log(response.result);
+    //console.log(response.result);
     }, function(reason) {
     console.error('error: ' + reason.result.error.message);
     });
@@ -179,18 +179,17 @@ function populateNewSheet() {
 }
 
 function addGoal(form) {
+    window.navigator.vibrate(200);
     var selectedPlayer;
     for (var i = 0; i < currentPlayers.length; i++) {
         if (currentPlayers[i] == form.playerBox.value) {
             selectedPlayer = i + 2;
-            console.log(selectedPlayer);
         }
     }
     var selectedGoal;
     for (var i = 0; i < goalTypes.length; i++) {
         if (goalTypes[i] == form.goalBox.value) {
             selectedGoal = letters[i + 1];
-            console.log(selectedGoal);
         }
     }
     var params = {
@@ -215,7 +214,6 @@ function writeGoal(prevVal, letterRange, numberRange) {
     valueInputOption: 'USER_ENTERED'
 
     };
-    console.log(parseInt(prevVal, 10) + 1);
     var tempVals = [];
     for (var i = 0; i < currentPlayers.length + 1; i++) {
         if (numberRange - 1 == i) {
@@ -225,20 +223,64 @@ function writeGoal(prevVal, letterRange, numberRange) {
         }
         
     }
-    console.log(tempVals);
-
     var valueRangeBody = {
         "range": "Sheet1!" + (letterRange + "" + 1),
         "majorDimension": "COLUMNS",
         "values": [tempVals]
     };
-
-    console.log("Sheet1!" + (letterRange + "" + 1));
-
     var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
     request.then(function(response) {
-    // TODO: Change code below to process the `response` object:
-        console.log(response.result);
+        //console.log(response.result);
+        document.getElementById("updateMsg").style.display = "block";
+        previousActions.push(letterRange + "" + numberRange);
+        setTimeout(function(){
+            document.getElementById("updateMsg").style.display = "none";
+        }, 3000);
+    }, function(reason) {
+    console.error('error: ' + reason.result.error.message);
+    });
+}
+
+
+function subtractGoal() {
+    var params = {
+        spreadsheetId: currentSheetId,
+        range: previousActions[previousActions.length - 1]
+    };
+    {
+    var request = gapi.client.sheets.spreadsheets.values.get(params);
+    request.then(function(response) {
+        writeUndo(response.result.values[0][0], previousActions[previousActions.length - 1].charAt(1), previousActions[previousActions.length - 1].charAt(0));
+        previousActions.pop();
+    }, function(reason) {
+        console.error('error: ' + reason.result.error.message);
+    });
+    }
+}
+function writeUndo(prevVal, numberRange, letterRange) {
+    var params = {
+    spreadsheetId: currentSheetId,
+    range: "Sheet1!" + (letterRange + "" + 1),
+    valueInputOption: 'USER_ENTERED'
+
+    };
+    var tempVals = [];
+    for (var i = 0; i < currentPlayers.length + 1; i++) {
+        if (numberRange - 1 == i) {
+            tempVals.push((parseInt(prevVal, 10) - 1))
+        } else {
+            tempVals.push(null);
+        }
+        
+    }
+    var valueRangeBody = {
+        "range": "Sheet1!" + (letterRange + "" + 1),
+        "majorDimension": "COLUMNS",
+        "values": [tempVals]
+    };
+    var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
+    request.then(function(response) {
+        //console.log(response.result);
         document.getElementById("updateMsg").style.display = "block";
         setTimeout(function(){
             document.getElementById("updateMsg").style.display = "none";
@@ -247,6 +289,7 @@ function writeGoal(prevVal, letterRange, numberRange) {
     console.error('error: ' + reason.result.error.message);
     });
 }
+
 
 //OAuth etc
 function initClient() {
@@ -305,12 +348,6 @@ function populateTypeSelect() {
     }
 }
 
-// var refreshInterval = setInterval(pageRefresh, 10);
-
-// function pageRefresh() {
-
-// }
-
 function stage1() {
     document.getElementById("updateMsg").style.display = "none";
     console.log("stage1");
@@ -353,3 +390,24 @@ function stage3() {
 
 stage1();
 populateTypeSelect();
+
+function refresh() {
+    if (previousActions.length == 0) {
+        document.getElementById("undo").style.display = "none";
+    } else {
+        document.getElementById("undo").style.display = "block";
+    }
+    if (currentSheetId == "") {
+        document.getElementById("openSheetButton").style.display = "none";
+    } else {
+        document.getElementById("openSheetButton").style.display = "block";
+        document.getElementById("openSheetLink").href = "https://docs.google.com/spreadsheets/d/" + currentSheetId;
+    }
+}
+
+refresh();
+var refreshInterval = window.setInterval(refresh, 1000);
+
+// if (screen.width <= 699) {
+//     document.getElementById("pagestyle").setAttribute("href", index.css);
+// }

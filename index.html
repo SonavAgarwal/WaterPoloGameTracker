@@ -1,12 +1,14 @@
 <html>
   <head>
     <title>Water</title>
-    <link href = "index.css" rel = "stylesheet">
+    <link href = "mobileindex.css" rel = "stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
   </head>
   <body>
     <button id="signin-button" onclick="handleSignInClick()" class = "inForm">Sign in</button>
     <button id="signout-button" onclick="handleSignOutClick()" class = "inForm">Sign out</button><br>
+
+    <image id = "middleLogo" src = "Images/PoloBall.png"></image>
 
     <h1 id = "enterthe">Enter the ... </h1><br>
 
@@ -23,7 +25,7 @@
     </form><br>
     
     
-    <form name = "formattedSheetInputForm" action = "" method = "get" onkeydown="return event.key != 'Enter';" id = "addGoalForm">
+    <form name = "updateSheetForm" action = "" method = "get" onkeydown="return event.key != 'Enter';" id = "addGoalForm">
       <h1>Player:</h1>  
       <select name = "playerBox" id = "playerBox" class = "inForm linkBox changeF">
       </select>
@@ -33,7 +35,11 @@
         <input type="button" name = "subButton" value="" onclick="addGoal(this.form);" class = "inForm" id = "addButton">
     </form>
     <br>
-    <h2 id = "updateMsg">Ok</h2>
+    <h2 id = "updateMsg">Ok</h2><br>
+
+    <button onclick = "subtractGoal();" id = "undo" class = "inForm">Undo</button>
+    <a id = "openSheetLink"><image src = "Images/OpenNewTab.png" id = "openSheetButton" class = "inForm"></image></a>
+
     <script src = "index.js"></script>
     <script async defer src="https://apis.google.com/js/api.js"
       onload="this.onload=function(){};handleClientLoad()"

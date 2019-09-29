@@ -15,15 +15,32 @@ body {
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif; 
     font-size: calc(3vw + 20px);
-    background-color: rgb(82, 146, 255);
+    /* background-color: rgb(82, 146, 255); */
+    background-image: linear-gradient(315deg,rgb(0, 255, 225), rgb(0, 128, 255), rgb(255, 0, 102));
+    background-size: 400%, 400%;
+    /* animation: backgroundAnimation 15s ease infinite; */
 }
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
 .inForm {
     border-radius: 4vw;
     border-color: black;
     border-style: solid;
     height: calc(6vw + 30px);
     border-width: calc(0.5vw + 3px);
-    background-color: rgb(255, 246, 81);
+    /* background-color: rgb(255, 246, 81); */
+    background-color: rgb(255, 255, 255);
     padding-left: 1vw;
     padding-right: 1vw;
 }
@@ -35,7 +52,7 @@ body {
     height: 15vw;
     background: url("Images/CheckMark.png") center no-repeat;
     background-size: 15vw 15vw;
-    background-color: rgb(255, 246, 81);
+    background-color: rgb(255, 255, 255);
     margin-left: 42.5vw;
     margin-top: 3vw;
     border-radius: 7.5vw;
@@ -50,7 +67,7 @@ body {
     margin-left: 5vw;
 }
 .inform:hover {
-    background-color: rgb(255, 249, 130);
+    background-color: rgb(255, 255, 255);
 }
 
 button {
@@ -71,7 +88,7 @@ h1 {
 #create {
     background: url("Images/PlusSign.png") center no-repeat;
     background-size: auto calc(6vw + 30px);
-    background-color: rgb(255, 246, 81);
+    background-color: rgb(255, 255, 255);
 }
 #goal {
     margin-top: 3vw;
@@ -80,4 +97,26 @@ h1 {
 #updateMsg {
     text-align: center;
     margin-top: 5vw;
+}
+
+#undo {
+    width: 13vw;
+    position: absolute;
+    bottom: 13vw;
+    margin-left: 13vw;
+}
+
+#openSheetButton {
+    width: auto;
+    position: absolute;
+    bottom: 13vw;
+    margin-left: calc(100vw - 13vw - calc(6vw + 30px));
+}
+
+#middleLogo {
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    margin-left: 0;
+    margin-top: 20vw;
 }
