@@ -1,6 +1,7 @@
 var currentSheetId = "";
 var currentPlayers = [];
 var goalTypes = ["Counter", "Five Meter", "Foul", "Six on Five"];
+var AP1_KEY;
 var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var group1 = [document.getElementById("signin-button"), document.getElementById("middleLogo")];
 var group2 = [document.getElementById("namesInputForm"), document.getElementById("sheetInputForm"), document.getElementById("enterthe"), document.getElementById("or")];
@@ -317,6 +318,7 @@ function initClient() {
     });
 }
 function handleClientLoad() {
+    AP1_KEY = CHEEZ + "Ydg8";
     gapi.load('client:auth2', initClient);
 }
 function updateSignInStatus(isSignedIn) {
