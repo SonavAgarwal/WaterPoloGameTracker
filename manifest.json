@@ -1,0 +1,20 @@
+{
+    "name": "Water Polo Game Tracker",
+    "short_name" : "WPGT",
+    "start_url": "index.html?utm_source=homescreen",
+    "icons": [
+        {
+            "src": "./Images/192Polo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "./Images/512Polo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffde38",
+    "background_color": "#38d7ff",
+    "display": "standalone"
+}

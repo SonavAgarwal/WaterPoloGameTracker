@@ -4,6 +4,7 @@
     <link href = "mobileindex.css" rel = "stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
     <link href = "Images/PoloFav.png" rel = "icon">
+    <link href = "manifest.json" rel = "manifest">
   </head>
   <body>
     <button id="signin-button" onclick="handleSignInClick()" class = "inForm">Sign in</button>
@@ -47,6 +48,12 @@
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
 
-    
+    <script>
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker
+               .register('/sw.js')
+               .then(function() { console.log("Service Worker Registered"); });
+      }
+    </script>
   </body>
 </html>
