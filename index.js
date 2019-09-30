@@ -318,7 +318,7 @@ function initClient() {
     });
 }
 function handleClientLoad() {
-    AP1_KEY = CHEEZ + "Ydg8";
+    AP1_KEY = cheez + "Ydg8";
     gapi.load('client:auth2', initClient);
 }
 function updateSignInStatus(isSignedIn) {
