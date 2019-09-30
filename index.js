@@ -5,7 +5,7 @@ var AP1_KEY;
 var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var group1 = [document.getElementById("signin-button"), document.getElementById("middleLogo")];
 var group2 = [document.getElementById("namesInputForm"), document.getElementById("sheetInputForm"), document.getElementById("enterthe"), document.getElementById("or")];
-var group3 = [document.getElementById("addGoalForm")];
+var group3 = [document.getElementById("addGoalForm"), document.getElementById("goback")];
 var cheez = 'AIza' + document.getElementById("cheeez").innerHTML;
 var previousActions = [];
 
@@ -336,6 +336,7 @@ function handleSignOutClick(event) {
 }
 
 function populateNameSelect() {
+    document.getElementById("playerBox").innerHTML = "";
     for (var i = 0; i < currentPlayers.length; i++) {
         var option = document.createElement("option");
         option.innerHTML = currentPlayers[i];
@@ -410,7 +411,15 @@ function refresh() {
 
 refresh();
 var refreshInterval = window.setInterval(refresh, 1000);
-
 // if (screen.width <= 699) {
 //     document.getElementById("pagestyle").setAttribute("href", index.css);
 // }
+
+function backHome() {
+    stage2();
+    previousActions = [];
+    currentSheetId = "";
+    currentPlayers = [];
+    document.getElementById("sheetInputForm").linkBox.value = "";
+    document.getElementById("namesInputForm").linkBox.value = "";
+}
