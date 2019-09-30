@@ -6,7 +6,7 @@ var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
 var group1 = [document.getElementById("signin-button"), document.getElementById("middleLogo")];
 var group2 = [document.getElementById("namesInputForm"), document.getElementById("sheetInputForm"), document.getElementById("enterthe"), document.getElementById("or")];
 var group3 = [document.getElementById("addGoalForm")];
-var cheez = 'AIza' + document.getElementById("cheeez").value;
+var cheez = 'AIza' + document.getElementById("cheeez").innerHTML;
 var previousActions = [];
 
 // function makeApiCall() {
