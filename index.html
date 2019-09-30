@@ -7,8 +7,8 @@
     <link href = "manifest.json" rel = "manifest">
   </head>
   <body>
-    <button id="signin-button" onclick="handleSignInClick()" class = "inForm">Sign in</button>
-    <button id="signout-button" onclick="handleSignOutClick()" class = "inForm">Sign out</button>
+    <button id="signin-button" onclick="handleSignInClick()" class = "inForm abutton">Sign in</button>
+    <button id="signout-button" onclick="handleSignOutClick()" class = "inForm abutton">Sign out</button>
     <button id="goback" onclick="backHome()" class = "inForm">I'm done</button><br>
 
     <image id = "middleLogo" src = "Images/PoloBall.png"></image>
@@ -17,14 +17,14 @@
     <h4 id = "cheeez">SyBaZpy0N63lSM-HzE5IvP24vzi4tSl</h4>
     <form name = "formattedSheetInputForm" action = "" method = "get" onkeydown="return event.key != 'Enter';" id = "sheetInputForm">
       <input class = "inForm linkBox" type = "text" name = "linkBox" placeholder = "sheet link">
-      <input class = "inForm linkButton" type="button" name = "subButton" value="Open" onclick="updateSheetInput(this.form);">
+      <input class = "inForm linkButton abutton" type="button" name = "subButton" value="Open" onclick="updateSheetInput(this.form);">
     </form>
 
     <br>
     <h1 id = "or">or</h1><br>
     <form name = "namesInputForm" action = "" method = "get" onkeydown="return event.key != 'Enter';" id = "namesInputForm">
       <input class = "inForm linkBox" type = "text" name = "linkBox" placeholder = "sheet of names">
-      <input class = "inForm linkButton" type="button" name = "subButton" value="." onclick="createNewSheet(this.form);" id = "create">
+      <input class = "inForm linkButton abutton" type="button" name = "subButton" value="." onclick="createNewSheet(this.form);" id = "create">
     </form><br>
     
     
@@ -35,13 +35,13 @@
       <h1 id = "goal">Goal:</h1>
       <select name = "goalBox" id = "goalBox" class = "inForm linkBox changeF">
       </select>
-        <input type="button" name = "subButton" value="" onclick="addGoal(this.form);" class = "inForm" id = "addButton">
+        <input type="button" name = "subButton" value="" onclick="addGoal(this.form);" class = "inForm abutton" id = "addButton">
     </form>
     <br>
     <h2 id = "updateMsg">Ok</h2><br>
 
-    <button onclick = "subtractGoal();" id = "undo" class = "inForm">Undo</button>
-    <a id = "openSheetLink"><image src = "Images/OpenNewTab.png" id = "openSheetButton" class = "inForm"></image></a>
+    <button onclick = "subtractGoal();" id = "undo" class = "inForm abutton">Undo</button>
+    <a id = "openSheetLink"><image src = "Images/OpenNewTab.png" id = "openSheetButton" class = "inForm abutton"></image></a>
 
     <h3>v1.8.2</h3>
 

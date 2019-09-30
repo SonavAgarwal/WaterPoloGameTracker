@@ -137,3 +137,21 @@ h3 {
     right: 1vw;
     font-size: 5vw;
 }
+.abutton {
+    box-shadow: 2vw 2vw 1vw rgba(60, 60, 60, 0.132);
+}
+.abutton:active {
+    animation: getPressed 0.3s ease 1;
+}
+
+@keyframes getPressed {
+    0% {
+        box-shadow: 2vw 2vw 1vw rgba(60, 60, 60, 0.122);
+    }
+    50% {
+        box-shadow: 1vw 1vw 0.5vw rgba(60, 60, 60, 0.122);
+    }
+    100% {
+        box-shadow: 2vw 2vw 1vw rgba(60, 60, 60, 0.122);
+    }
+}
