@@ -58,10 +58,7 @@ function updateSheetInput(form) {
     if(linkl.charAt(i - 2) == "/" && linkl.charAt(i - 1) == "d" && linkl.charAt(i) == "/") {
         partId = true;
     }
-    }
-
-    alert(currentSheetId);
-    
+    }    
     var params = {
     spreadsheetId: currentSheetId,
     range: 'Sheet1',
@@ -73,6 +70,9 @@ function updateSheetInput(form) {
         addNames(response.result);
     }, function(reason) {
         console.error('error: ' + reason.result.error.message);
+        if (reason.result.error.message == "Requested entity was not found.") {
+            alert("Please enter a link.")
+        }
     });
     }
 }
@@ -102,10 +102,7 @@ function createNewSheet(form) {
     if(linkl.charAt(i - 2) == "/" && linkl.charAt(i - 1) == "d" && linkl.charAt(i) == "/") {
         partId = true;
     }
-    }
-
-    alert("ok");
-    
+    }    
     var params = {
         spreadsheetId: currentSheetId,
         range: 'Sheet1',
@@ -118,6 +115,9 @@ function createNewSheet(form) {
             makeSheet();
         }, function(reason) {
             console.error('error: ' + reason.result.error.message);
+            if (reason.result.error.message == "Requested entity was not found.") {
+                alert("Please enter a link.")
+            }
         });
     }
 }
@@ -136,7 +136,8 @@ function makeSheet() {
         populateNewSheet();
         //console.log(response.result);
         }, function(reason) {
-        console.error('error: ' + reason.result.error.message);
+            console.error('error: ' + reason.result.error.message);
+            
         });
     }
 }

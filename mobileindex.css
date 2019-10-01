@@ -138,7 +138,7 @@ h3 {
     font-size: 5vw;
 }
 .abutton {
-    box-shadow: 2vw 2vw 1vw rgba(60, 60, 60, 0.132);
+    box-shadow: 2vw 2vw 1vw rgba(16, 16, 16, 0.132);
 }
 .abutton:active {
     animation: getPressed 0.3s ease 1;
@@ -146,12 +146,25 @@ h3 {
 
 @keyframes getPressed {
     0% {
-        box-shadow: 2vw 2vw 1vw rgba(60, 60, 60, 0.122);
+        box-shadow: 2vw 2vw 1vw rgba(16, 16, 16, 0.122);
+        background-color: rgb(255, 255, 255);
     }
     50% {
-        box-shadow: 1vw 1vw 0.5vw rgba(60, 60, 60, 0.122);
+        box-shadow: 1vw 1vw 0.5vw rgba(16, 16, 16, 0.122);
+        background-color: rgb(240, 240, 240);
     }
     100% {
-        box-shadow: 2vw 2vw 1vw rgba(60, 60, 60, 0.122);
+        box-shadow: 2vw 2vw 1vw rgba(16, 16, 16, 0.122);
+        background-color: rgb(255, 255, 255);
     }
+}
+
+.afield {
+    -webkit-transition: box-shadow .35s ease;
+    transition: box-shadow .35s ease;
+}
+
+.afield:focus {
+    box-shadow: 2vw 2vw 1vw rgba(16, 16, 16, 0.132);
+    background-color: rgb(240, 240, 240);
 }

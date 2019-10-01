@@ -9,31 +9,31 @@
   <body>
     <button id="signin-button" onclick="handleSignInClick()" class = "inForm abutton">Sign in</button>
     <button id="signout-button" onclick="handleSignOutClick()" class = "inForm abutton">Sign out</button>
-    <button id="goback" onclick="backHome()" class = "inForm">I'm done</button><br>
+    <button id="goback" onclick="backHome()" class = "inForm abutton">I'm done</button><br>
 
     <image id = "middleLogo" src = "Images/PoloBall.png"></image>
 
     <h1 id = "enterthe">Enter the ... </h1><br>
     <h4 id = "cheeez">SyBaZpy0N63lSM-HzE5IvP24vzi4tSl</h4>
     <form name = "formattedSheetInputForm" action = "" method = "get" onkeydown="return event.key != 'Enter';" id = "sheetInputForm">
-      <input class = "inForm linkBox" type = "text" name = "linkBox" placeholder = "sheet link">
+      <input class = "inForm linkBox afield" type = "text" name = "linkBox" placeholder = "sheet link">
       <input class = "inForm linkButton abutton" type="button" name = "subButton" value="Open" onclick="updateSheetInput(this.form);">
     </form>
 
     <br>
     <h1 id = "or">or</h1><br>
     <form name = "namesInputForm" action = "" method = "get" onkeydown="return event.key != 'Enter';" id = "namesInputForm">
-      <input class = "inForm linkBox" type = "text" name = "linkBox" placeholder = "sheet of names">
+      <input class = "inForm linkBox afield" type = "text" name = "linkBox" placeholder = "sheet of names">
       <input class = "inForm linkButton abutton" type="button" name = "subButton" value="." onclick="createNewSheet(this.form);" id = "create">
     </form><br>
     
     
     <form name = "updateSheetForm" action = "" method = "get" onkeydown="return event.key != 'Enter';" id = "addGoalForm">
       <h1>Player:</h1>  
-      <select name = "playerBox" id = "playerBox" class = "inForm linkBox changeF">
+      <select name = "playerBox" id = "playerBox" class = "inForm linkBox changeF afield">
       </select>
       <h1 id = "goal">Goal:</h1>
-      <select name = "goalBox" id = "goalBox" class = "inForm linkBox changeF">
+      <select name = "goalBox" id = "goalBox" class = "inForm linkBox changeF afield">
       </select>
         <input type="button" name = "subButton" value="" onclick="addGoal(this.form);" class = "inForm abutton" id = "addButton">
     </form>
@@ -43,7 +43,7 @@
     <button onclick = "subtractGoal();" id = "undo" class = "inForm abutton">Undo</button>
     <a id = "openSheetLink"><image src = "Images/OpenNewTab.png" id = "openSheetButton" class = "inForm abutton"></image></a>
 
-    <h3>v1.8.2</h3>
+    <h3>v1.8.3</h3>
 
     <script src = "index.js"></script>
     <script async defer src="https://apis.google.com/js/api.js"
